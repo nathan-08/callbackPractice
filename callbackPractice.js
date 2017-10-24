@@ -122,6 +122,12 @@ uniq(names, function(uniqArr){
 // 6. Write a function called each that takes in an array of names. For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 
     //Code Here 
+    function each(names, cb){
+      for (var i=0; i<names.length; i++){
+        cb(names[i], i);
+      }
+    }
+
 
 
 
@@ -135,6 +141,13 @@ each(names, function(item, indice){
 // When the correct user object is found, invoke the callback with the user object as an argument.
 
 // Code here
+function getUserById(users, id, cb){
+  for (var i = 0; i < users.length; i++){
+    if (users[i].id === id) {
+      cb(users[i]);
+    }
+  }
+}
 
 
 
