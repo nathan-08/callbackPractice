@@ -23,6 +23,9 @@ and what you should write is the sayHi function that makes the code above work,
 // 1. Write a function called first that returns the first item of the array using a callback function
 
   // Code Here
+  function first(arr, cb){
+    cb(arr[0]);
+  }
 
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -36,6 +39,9 @@ first(names, function(firstName){
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
   //Code Here
+  function last(arr, cb){
+    cb(arr[arr.length-1]);
+  }
 
 
 
@@ -49,6 +55,9 @@ last(names, function(lastName){
 // 3. Write a function called multiply that multiplies two numbers. Invoke the callback with the result of the multiplication. 
 
   //Code Here
+  function multiply(x,y, cb){
+    cb(x*y);
+  }
 
 
 
@@ -63,6 +72,14 @@ multiply(4, 3, function(answer){
 // If the name does not exist, invoke the callback with false as an argument.
 
   //Code Here 
+  function contains(arr, name, cb){
+    for (var i=0; i<name.length; i++){
+      if (arr[i] === name){
+        cb(true);
+      }
+    }
+    cb(false);
+  }
 
 
 
@@ -81,6 +98,19 @@ contains(names, 'Colt', function(result){
 // Invoke the callback with the modified array as an argument.
 
   //Code Here
+  function uniq(arr, cb){
+    //delete duplicates from arr
+    var newArr;
+    for (var  i =0; i< arr.length; i++){
+      for (var y =0; y< newArr.length; y++){
+        if (newArr[y] === arr[i]){
+          arr.splice(i, 1);
+        }
+      }
+      newArr.push(arr[i]);
+    }
+    cb(arr);
+  }
 
 
 
