@@ -99,15 +99,15 @@ contains(names, 'Colt', function(result){
 
   //Code Here
   function uniq(arr, cb){
-    //delete duplicates from arr
-    var newArr;
-    for (var  i =0; i< arr.length; i++){
-      for (var y =0; y< newArr.length; y++){
-        if (newArr[y] === arr[i]){
-          arr.splice(i, 1);
-        }
+    var newArr = [];
+    
+    
+    for (var i = arr.length - 1; i >= 0; i--){
+      if(newArr.indexOf(arr[i]) !== -1){
+        arr.splice(i, 1);
+      } else {
+        newArr.push(arr[i]);
       }
-      newArr.push(arr[i]);
     }
     cb(arr);
   }
